@@ -1,13 +1,13 @@
 const { createContext } = require("react");
 
 const CarrinhoContext = createContext()
-const CarrinhoProvide = (children) =>{
+const CarrinhoProvider = (children) =>{
     return(
         <CarrinhoContext.Provider>
-            
+            {children}
         </CarrinhoContext.Provider>
     )
 }
 
 
-export default CarrinhoContext
+export default CarrinhoProvider
