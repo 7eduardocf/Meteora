@@ -1,9 +1,10 @@
-const { createContext } = require("react");
+const { createContext, useState } = require("react");
 
 const CarrinhoContext = createContext()
 const CarrinhoProvider = (children) =>{
+    const [carrinho,setCarrinho] = useState([])
     return(
-        <CarrinhoContext.Provider>
+        <CarrinhoContext.Provider value={{carrinho, setCarrinho}}>
             {children}
         </CarrinhoContext.Provider>
     )
