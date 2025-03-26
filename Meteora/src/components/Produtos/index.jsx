@@ -16,12 +16,11 @@ const Produtos = () => {
                 ...carrinhoAnterior, novoProduto
             ])
         }
-        setCarrinho((carrinhoAnterior) =>{
+        setCarrinho((carrinhoAnterior) => carrinhoAnterior.map((itemDoCarrinho =>{
             if(itemDoCarrinho.id ===  novoProduto.id) itemDoCarrinho.quantidade += 1
             return itemDoCarrinho
-        })
+        })))
     }
-
     return (
         <section role="produtos" aria-label="Produtos que estão bombando!">
             <Titulo>Produtos que estão bombando!</Titulo>
