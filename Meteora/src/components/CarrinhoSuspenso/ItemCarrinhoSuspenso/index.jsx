@@ -5,10 +5,9 @@ import ValorFormatado from "@/components/ValorFormatado";
 import useCarrinhoContext from "../../../hooks/useCarrinhoContext";
 
 const ItemCarrinhoSuspenso = ({
-  itemCarrinho,
-  removerProdutoCarrinho
+  itemCarrinho
 }) => {
-    const {adicionarProduto, removerProduto} = useCarrinhoContext()
+    const {adicionarProduto, removerProduto,removerProdutoCarrinho} = useCarrinhoContext()
   return (
     <li>
       <>
