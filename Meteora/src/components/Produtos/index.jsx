@@ -2,41 +2,11 @@ import React, { useContext } from "react";
 import Produto from "./Produto";
 import produtos from "@/mocks/produtos.json";
 import Titulo from "@/components/Titulo";
-import { CarrinhoContext } from "../../contexto/carrinho-context";
+import useCarrinhoContext from "../../hooks/useCarrinhoContext";
 
 const Produtos = () => {
-    const { carrinho, setCarrinho} = useContext(CarrinhoContext)
 
-    function adicionarProduto(novoProduto){
-        const temOProduto = carrinho.some((itemDoCarrinho)=> itemDoCarrinho.id === novoProduto.id)
-
-        if(!temOProduto){
-            novoProduto.quantidade = 1
-            return setCarrinho((carrinhoAnterior) =>[
-                ...carrinhoAnterior, novoProduto
-            ])
-        }
-        setCarrinho((carrinhoAnterior) => carrinhoAnterior.map((itemDoCarrinho =>{
-            if(itemDoCarrinho.id ===  novoProduto.id) itemDoCarrinho.quantidade += 1
-            return itemDoCarrinho
-        })))
-    }
-
-    function removerProduto(id){
-        const produto = carrinho.find((item) => item.id === id)
-        const ehOUltimo = produto.quantidade === 1;
-        if(ehOUltimo){
-            return setCarrinho((carrinhoAnterior) =>
-                carrinhoAnterior.filter((itemDoCarrinho) =>itemDoCarrinho.id !== id)
-            )
-        }
-        setCarrinho((carrinhoAnterior) =>
-            carrinhoAnterior.map((itemDoCarrinho) =>{
-                if(itemDoCarrinho.id ===id) itemDoCarrinho.quantidade -=1
-                return itemDoCarrinho
-            })
-        )
-    }
+    const {adicionarProduto} = useCarrinhoContext()
 
     return (
         <section role="produtos" aria-label="Produtos que estão bombando!">
