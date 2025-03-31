@@ -3,7 +3,7 @@ import { useContext } from "react"
 
 
 const useCarrinhoContext = () =>{
-    const {carrinho, setCarrinho} = useContext(CarrinhoContext)
+    const {carrinho, setCarrinho, quantidade,setQuantidade,valorTotal,setValorTotal} = useContext(CarrinhoContext)
 
     function mudarQuantidade({id, quantidade}){
         return carrinho.map((itemDoCarrinho) =>{
