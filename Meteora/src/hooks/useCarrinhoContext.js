@@ -63,7 +63,7 @@ const useCarrinhoContext = () =>{
     setValorTotal(totalTemp)
     },[carrinho])
     return {
-        carrinho,setCarrinho,adicionarProduto,removerProduto,removerProdutoCarrinho
+        carrinho,setCarrinho,adicionarProduto,removerProduto,removerProdutoCarrinho,valorTotal,quantidade
     }
 
 
